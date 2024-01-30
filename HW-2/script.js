@@ -1,0 +1,1 @@
+console.log("My top 3 websites are Youtube, Intagram and Engadget. My 3 favorite games are Overwatch, Super Smash Bros. and Settlers of Catan. My 3 favorite artists are, Tex Avery who basically gave us Bugs Bunny, Bill Watterson who raised the bar on what a comic strip could be, and Akira Toriyama who has inspired countless manga and anime with his manga Dragon Ball.");
