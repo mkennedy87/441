@@ -1,0 +1,1 @@
+So, the plan was to make a choose your own adventure starting with rival animation studios, then you'd pick a place, and then you'd pick a character. I've spent an entire day on this assignment and I couldn't quite get it figured out. I started making all the functions I thought I needed, and even got it to increment, but I couldn't get it to change the photos.
