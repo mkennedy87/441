@@ -10,7 +10,82 @@
         }
     </style>
     <script>
+        //document.getElementById("restartButton")
 
+
+         function getChoice1()
+        {
+            var myChoice = document.getElementById("choice").value;
+            var myQuestion = document.getElementById("question");
+            if(myChoice === "left")
+            {
+                document.getElementById("choice").style.display="none";
+                document.getElementById("btnSubmit").style.display="none";
+                document.getElementById("mainImage").src = "walmart.jpeg"
+                document.getElementById("choice2").style.display="block";
+                document.getElementById("btnSubmit2").style.display="block";
+                
+
+                myQuestion.innerHTML = "You made it in time! you enter Walmart. Do you go right or left?";
+            }
+            else if(myChoice === "right")
+            {
+       
+                document.getElementById("mainImage").src = "pay.png"
+                
+           
+                myQuestion.innerHTML = "You chose the gas station. Bathroom is for paying customers only. Turn around and to go to Walmart. Try left";
+
+            }
+            else
+            {
+                myQuestion.innerHTML = "Invalid answer";
+            }
+        }
+        
+        function getChoice2()
+        {
+            var answer = document.getElementById("choice2").value;
+            var myQuestion = document.getElementById("question");
+            if(answer === "right")
+            {
+                document.getElementById("choice2").style.display="none";
+                document.getElementById("btnSubmit2").style.display="none";
+                document.getElementById("choice3").style.display="block";
+                document.getElementById("btnSubmit3").style.display="block";
+                document.getElementById("mainImage").src = "bathrooms.jpg"
+                myQuestion.innerHTML = "You've made it to the bathroom entrance! The mens or womens room?";
+                
+            }
+            else if(answer === "left")
+            {
+                document.getElementById("mainImage").src = "Grocery.jpg"
+                myQuestion.innerHTML = "You're in grocery! You're going the wrong way! Choose right!";
+            }
+        }
+
+        function getChoice3()
+        {
+            var answer = document.getElementById("choice3").value;
+            var myQuestion = document.getElementById("question");
+            if(answer === "mens")
+            {
+                document.getElementById("mainImage").src = "toilet.jpg"
+                myQuestion.innerHTML = "It's time!";
+            }
+            else if(answer === "womens")
+            {
+                document.getElementById("mainImage").src = "toilet.jpg"
+                myQuestion.innerHTML = "It's time!";
+            }
+        }
+
+        function restartButton(){
+            location.reload();
+        }
+
+
+ 
     </script>
 
     <body>
@@ -18,9 +93,24 @@
         <br>
         <img src="scared.jpg" id="mainImage" width="600">
     <div id="question">
-    
+            <br>
+        You suddenly need to use the restroom.
+            <br>
+        You see a gas station a few blocks away if you take a right, but there is a Walmart a few miles down the road if you take a left.
+            <br>
+        Do you go left or right?
   
     </div>
 
+     <input type="text" size="30" id="choice" value="Please enter left or right">
+     <button id="btnSubmit" onclick="getChoice1();">Click to continue</button>
+
+     <input type="text" size="30" id="choice2" value="Enter left or right." style="display:none">
+     <button id="btnSubmit2" onclick="getChoice2();"  style="display:none">Click to continue</button>
+
+     <input type="text" size="30" id="choice3" value="Enter mens or womens."  style="display:none">
+     <button id="btnSubmit3" onclick="getChoice3();" style="display:none">Click to continue</button>
+
+     <button onclick="window.location.reload()">Restart</button>
     </body>
 </html>
