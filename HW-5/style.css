@@ -2,6 +2,8 @@ body {
     font-family: arial;
 }
 
+/* I need to refamiliarize myself with css. I basically had to copy and paste from the example. */
+
 .divTable{
 	display: table;
 	width: 50%;
