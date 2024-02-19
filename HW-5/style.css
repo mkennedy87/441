@@ -1,3 +1,16 @@
 body {
     font-family: arial;
 }
+
+.divTable{
+	display: table;
+	width: 100%;
+}
+
+.divTableRow {
+	display: table-row;
+}
+
+.divTableBody {
+	display: table-row-group;
+}
