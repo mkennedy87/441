@@ -1,1 +1,1 @@
-I started by copying the the HW-5 folder and renaming it to HW-6. And the started to check over the example and borrow from it's code.
+I started by copying the the HW-5 folder and renaming it to HW-6. And the started to check over the example and borrow from it's code. I had to rename a bunch of stuff in the code to make it work.
