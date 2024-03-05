@@ -1,1 +1,1 @@
-kinda burnt
+First I went through the example assignment code. Next I created all folders and files. Then I Started borrowing code from the example. I then started going through the homework website to help follow the rules of the assignment. I struggled on adding an image to the constructor. I did some googling and that didn't really helpt. I finally figured it out with the exception of the use of my quotes. Then it dawned on me to use single quotes.
