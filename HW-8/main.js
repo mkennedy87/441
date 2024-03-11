@@ -24,7 +24,7 @@ class PicInfo{
 function initializeArray()
 {
 
-    var pic = new PicInfo("#pic", "images/dbz.jpg");
+    var pic = new PicInfo("#pic", "images/dbz.jpg", "images/db.jpg","images/t.jpg");
     allPics.push(pic);
 
 }
@@ -45,8 +45,10 @@ $(document).ready(function(){
 
         $("#third").toggle();
            setInterval(moveSquare, 1000);
+           setInterval(moveTriangle, 850);
         
         $(allPics[0].theSelector).fadeOut().fadeIn();
+        $("#triangle");
         
     });
     
@@ -57,3 +59,7 @@ function moveSquare()
     $("#square").animate({left:250}).animate({top:400}).animate({left:0}).animate({top:300});
 }
 
+function moveTriangle()
+{
+    $("#triangle").fadeOut().fadeIn().animate({left:850}).fadeOut().fadeIn().animate({top:400}).fadeOut().fadeIn().animate({left:0}).fadeOut().fadeIn().animate({top:300});
+}
