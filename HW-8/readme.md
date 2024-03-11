@@ -1,1 +1,1 @@
-First thing I did was I grabbed the jquery library off of google.
+First thing I did was I grabbed the jquery library off of google. Next going through the example code and last week's assignment.

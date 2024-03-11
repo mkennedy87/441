@@ -1,6 +1,6 @@
-var dogSelector = "#dog";
-var allDogs = new Array();
-class DogInfo{
+var picSelector = "#pic";
+var allPics = new Array();
+class PicInfo{
     constructor(selector, imagePath)
     {
         this.selector = selector;
@@ -24,20 +24,20 @@ class DogInfo{
 function initializeArray()
 {
 
-    var dog = new DogInfo("#dog", "images/dog.jpg");
-    allDogs.push(dog);
+    var pic = new PicInfo("#pic", "images/dbz.jpg");
+    allPics.push(pic);
 
 }
 $(document).ready(function(){
     initializeArray();
-    console.log(allDogs.length);
-    console.log(allDogs[0].toString());
-    console.log(allDogs[0].theSelector);
-    console.log(allDogs[0].theImagePath);
+    console.log(allPics.length);
+    console.log(allPics[0].toString());
+    console.log(allPics[0].theSelector);
+    console.log(allPics[0].theImagePath);
     
     //$(allDogs[0].theSelector).src = allDogs[0].theImagePath;
     //$("#my_image").attr("src","second.jpg");
-    $(allDogs[0].theSelector).attr("src", allDogs[0].theImagePath);
+    $(allPics[0].theSelector).attr("src", allPics[0].theImagePath);
 
     $("button").click(function(){
        
@@ -46,7 +46,7 @@ $(document).ready(function(){
         $("#third").toggle();
            setInterval(moveSquare, 1000);
         
-        $(allDogs[0].theSelector).fadeOut().fadeIn();
+        $(allPics[0].theSelector).fadeOut().fadeIn();
         
     });
     
