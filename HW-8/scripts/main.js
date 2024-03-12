@@ -24,9 +24,13 @@ class PicInfo{
 function initializeArray()
 {
 
-    var pic = new PicInfo("#pic", "images/dbz.jpg", "images/db.jpg","images/t.jpg");
-    allPics.push(pic);
+    var pic = new PicInfo("#pic", "images/dbz.jpg");
+    var pic2 = new PicInfo("#pic", "images/db.jpg");
+    var pic3 = new PicInfo("#pic", "images/t.jpg");
 
+    allPics.push(pic);
+    allPics.push(pic2);
+   // allPics.push(pic3);
 }
 $(document).ready(function(){
     initializeArray();
@@ -36,7 +40,7 @@ $(document).ready(function(){
     console.log(allPics[0].theImagePath);
     
     $(allPics[0].theSelector).src = allPics[0].theImagePath;
-    $("#my_image").attr("src","images/db.jpg");
+    $("#pic").attr("src","images/db.jpg");
     $(allPics[0].theSelector).attr("src", allPics[0].theImagePath);
 
     $("button").click(function(){
@@ -63,11 +67,28 @@ function moveTriangle()
 {
     $("#triangle").fadeOut().fadeIn().animate({left:850}).fadeOut().fadeIn().animate({top:400}).fadeOut().fadeIn().animate({left:0}).fadeOut().fadeIn().animate({top:300});
 }
-
-function accessInformation()
+function changeWords()
 {
-    // get a random number
-    var randomNumber = Math.floor(Math.random() * myArray.length);
-
-
+    $("#rotate").toString()
+    {
+    return "yes";
+    }
 }
+
+// function accessInformation()
+// {
+//     // get a random number
+//     var randomNumber = Math.floor(Math.random() * myArray.length);
+
+
+// }
+
+// class Rotate{
+//     constructor(selector,message)
+//     {
+//     this.selector = selector;
+//     this.message = message;
+//     }
+//     $(".rotate")
+    
+// }
