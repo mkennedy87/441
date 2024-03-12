@@ -1,11 +1,19 @@
-#square {
+.square {
     width: 100px;
     height: 100px;
-    background: red;
+   
     position: absolute;
     left: 0;
     top: 400;
   }
+
+#square {
+  background:red;
+}
+/* was going to try and have the square change colors but realised that the fade animation would desync the timing of the 2 squares */
+#square2 {
+  background:blue;
+}
 
   #triangle {
     width: 0;

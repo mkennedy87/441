@@ -35,8 +35,8 @@ $(document).ready(function(){
     console.log(allPics[0].theSelector);
     console.log(allPics[0].theImagePath);
     
-    //$(allDogs[0].theSelector).src = allDogs[0].theImagePath;
-    //$("#my_image").attr("src","second.jpg");
+    $(allPics[0].theSelector).src = allPics[0].theImagePath;
+    $("#my_image").attr("src","images/db.jpg");
     $(allPics[0].theSelector).attr("src", allPics[0].theImagePath);
 
     $("button").click(function(){
@@ -45,10 +45,10 @@ $(document).ready(function(){
 
         $("#third").toggle();
            setInterval(moveSquare, 1000);
-           setInterval(moveTriangle, 850);
+           setInterval(moveTriangle, 500);
         
         $(allPics[0].theSelector).fadeOut().fadeIn();
-        $("#triangle");
+        
         
     });
     
@@ -56,10 +56,18 @@ $(document).ready(function(){
 
 function moveSquare()
 {
-    $("#square").animate({left:250}).animate({top:400}).animate({left:0}).animate({top:300});
+    $(".square").animate({left:250}).animate({top:400}).animate({left:0}).animate({top:300});
 }
 
 function moveTriangle()
 {
     $("#triangle").fadeOut().fadeIn().animate({left:850}).fadeOut().fadeIn().animate({top:400}).fadeOut().fadeIn().animate({left:0}).fadeOut().fadeIn().animate({top:300});
+}
+
+function accessInformation()
+{
+    // get a random number
+    var randomNumber = Math.floor(Math.random() * myArray.length);
+
+
 }
