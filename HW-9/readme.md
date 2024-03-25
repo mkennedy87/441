@@ -1,0 +1,1 @@
+I started by duplicating the homework example folder and then I started editing the code to see what it does. I googled how to make text fade in without having to have it appear first.
