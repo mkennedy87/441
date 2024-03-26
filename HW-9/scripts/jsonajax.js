@@ -1,6 +1,6 @@
  $(document).ready(function () {
             $("button").click(function () {
-                $("#bikeInformation").load("data/bike.json", function(responseText){
+                $("#bikeInformation").load("data/bike.json", fadeText, function(responseText){
                     var bike = JSON.parse(responseText);
                     $("#bikeInformation").html("Manufacturer: " + bike.manufacturer 
                 + "<br>Model:" + bike.model + "<br>First Name:" + bike.owner.firstName + "<br>Last Name:" 
@@ -12,6 +12,6 @@
 
        function fadeText()
         {
-            $("#bikeInformation").fadeOut("slow").fadeIn("slow");
+            $("#bikeInformation").hide().fadeIn("slow");
         }
         
