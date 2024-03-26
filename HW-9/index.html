@@ -4,10 +4,36 @@
 <head>
     <script src="libs/jquery-3.3.1.min.js"></script>
     <script src="scripts/jsonajax.js"></script>
-    </head>
+    
     <link rel="stylesheet" href="styles/styles.css" text="text/css">
+    <script>
+        $(document).ready(function(){
+          $("button").click(function(){
+            $.getJSON("scripts/jsonajax.js", function(result){
+              $.each(result, function(i, field){
+                $("div").append(field + " ");
+              });
+            });
+          });
+        });
+        </script>
+            <script>
+              $.fn.bluey = function () {
+                  this.css("background-color", "blue");
+                  this.css("color", "white");
+              };
+      
+              $(function () {
+                  $("button").click(function () {
+                      $("#changeBody").bluey();
+                  });
+      
+              });
+          </script>
+    </head>
+    
 
-    <body>
+    <body id="changeBody">
         <div id="rickAndMortyInfo"></div>
         <button id="btnSubmit">Show Information</button>
     </body>
