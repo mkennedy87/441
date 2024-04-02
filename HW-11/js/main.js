@@ -13,12 +13,12 @@ createSquares();
 drawSquare();
 
 // this timer will move the second square around
-setInterval(moveGreenSquare, 5000/60);
+setInterval(moveGreenSquare, 5000/30);
 
 // this function creates new instances of squares
 function createSquares() {
-    square1 = new Square(x, y, 20, 20, "blue");
-    square2 = new Square(x2, y2, 50, 50, "green");
+    square1 = new Square(x, y, 20, 20, "green");
+    square2 = new Square(x2, y2, 50, 50, "red");
 }
 
 // this function will randomly move the second square around the canvas
