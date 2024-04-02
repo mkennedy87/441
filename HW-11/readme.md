@@ -1,0 +1,1 @@
+Started by downloading the example homework and studying it a bit.
