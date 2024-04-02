@@ -1,1 +1,1 @@
-Started by downloading the example homework and studying it a bit.
+Started by downloading the example homework and studying it a bit. Just having trouble figuring out the collision with the edge of the canvas.
