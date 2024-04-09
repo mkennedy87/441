@@ -1,1 +1,1 @@
-I went through the class website, and next I started going through the code in the example homework. Next I started setting up my folders and files that I think I'm going to need. Started copying code from the example.
+I went through the class website, and next I started going through the code in the example homework. Next I started setting up my folders and files that I think I'm going to need. Started copying code from the example. The link I used for Jquery apparently didn't work, so I bypassed this by just adding the library.
