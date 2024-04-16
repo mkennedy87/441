@@ -1,0 +1,1 @@
+Went through the Website. A few days later went through the site again and actually added code. AFter that I went through the homework's criteria and started changing the code. I changed the character to a dragon. I added spikes as an obstacle. I changed the gravity of the stars. I changed jump to the spacebar. And I added one more platform.
