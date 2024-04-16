@@ -39,6 +39,7 @@ var config = {
     var score = 0;
     var scoreText;
     var gameOver = false;
+    var spike;
 
     var game = new Phaser.Game(config);
 
@@ -48,20 +49,32 @@ var config = {
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
-        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+        this.load.image('spike', 'assets/triangle.png');
+        this.load.spritesheet('dude', 'assets/dragon.png', { frameWidth: 96, frameHeight: 64 });
   
     }
 
     function create ()
     {
         this.add.image(400, 300, 'sky');
-          platforms = this.physics.add.staticGroup();
+       
+        spike = this.physics.add.staticGroup();
+        spike.create(600, 540, 'spike');
+        spike.create(615, 540, 'spike');
+        spike.create(630, 540, 'spike');
+
+        platforms = this.physics.add.staticGroup();
+       
 
         platforms.create(400, 568, 'ground').setScale(2).refreshBody();
 
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
+        platforms.create(350, 100, 'ground');
+
+        // spike = this.physics.add.staticGroup();
+        // spike.create(600, 525, 'spike');
 
         player = this.physics.add.sprite(100, 450, 'dude');
 
@@ -70,20 +83,20 @@ var config = {
 
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('dude', { start: 6, end: 11 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
             key: 'turn',
-            frames: [ { key: 'dude', frame: 4 } ],
+            frames: [ { key: 'dude', frame: 3 } ],
             frameRate: 20
         });
 
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 5 }),
             frameRate: 10,
             repeat: -1
         });
@@ -97,20 +110,23 @@ var config = {
 
         stars.children.iterate(function (child) {
 
-            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+            child.setBounceY(Phaser.Math.FloatBetween(0.1, 1));
 
         });
 
         bombs = this.physics.add.group();
+       // spike = this.physics.add.group();
 
         scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(stars, platforms);
         this.physics.add.collider(bombs, platforms);
+      // this.physics.add.collider(player, spike);
 
         this.physics.add.overlap(player, stars, collectStar, null, this);
         this.physics.add.collider(player, bombs, hitBomb, null, this);
+        this.physics.add.collider(player, spike, hitSpike, null, this);
 
     }
 
@@ -139,7 +155,7 @@ var config = {
             player.anims.play('turn');
         }
 
-        if (cursors.up.isDown && player.body.touching.down)
+        if (cursors.space.isDown && player.body.touching.down)
         {
             player.setVelocityY(-330);
         }
@@ -170,6 +186,17 @@ var config = {
     }
 
     function hitBomb (player, bomb)
+{
+    this.physics.pause();
+
+    player.setTint(0xff0000);
+
+    player.anims.play('turn');
+
+    gameOver = true;
+}
+// spike collision
+function hitSpike (player, spike)
 {
     this.physics.pause();
 
