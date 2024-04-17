@@ -1,0 +1,1 @@
+Went through 441 website for week 14. Now, ooking at example assignment.
