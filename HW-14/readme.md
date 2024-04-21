@@ -1,1 +1,1 @@
-Went through 441 website for week 14. Now, ooking at example assignment.
+Went through 441 website for week 14. Now, looking at example assignment. Next, I downloaded and tested the example assignment.
