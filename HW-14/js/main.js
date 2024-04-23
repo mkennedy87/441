@@ -38,10 +38,10 @@ function createBox2() {
   // create a box
   var geometry = new THREE.BoxGeometry();
   var material = new THREE.MeshBasicMaterial({
-    color: 0x1234ee
+    color: 0x33ff99
   });
   cube2 = new THREE.Mesh(geometry, material);
-  cube2.position.set(2, 0);
+  cube2.position.set(2, 0,);
   cube.add(cube2);
   cube2.scale.x = .5; // SCALE
   cube2.scale.y = .5; // SCALE
@@ -65,7 +65,7 @@ function animate2() {
 
 function getScene() {
   var scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xaaaaaa);
+  scene.background = new THREE.Color(0x55555);
   return scene;
 }
 

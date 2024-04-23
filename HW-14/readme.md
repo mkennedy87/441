@@ -1,1 +1,1 @@
-Went through 441 website for week 14. Now, looking at example assignment. Next, I downloaded and tested the example assignment.
+Went through 441 website for week 14. Now, looking at example assignment. Next, I downloaded and tested the example assignment. I eventually got my object loaded in. I started changing colors and parameters. I had to scale up the car because it was tiny.
