@@ -2,12 +2,14 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 var cube, cube2;
 var modelObject;
+
+
 // create the first box
 function createBox() {
   // create a box
   var geometry = new THREE.BoxGeometry();
   var material = new THREE.MeshBasicMaterial({
-    color: 0x324ca8
+    color: 0x009fff
   });
   cube = new THREE.Mesh(geometry, material);
   cube.position.set(50, 0, 0);
@@ -51,8 +53,8 @@ function createBox2() {
 
 function animate2() {
   requestAnimationFrame(animate2);
-  cube2.rotation.x += 0.05;
-  cube2.rotation.y += 0.05;
+  cube2.rotation.x += 0.15;
+  cube2.rotation.y += 0.15;
 
 
 }
@@ -136,16 +138,21 @@ function getControls(camera, renderer) {
 }
 
 /**
- * Load Skull model
+ * Load jeep model
  **/
 
 function loadModel() {
   loader = new THREE.OBJLoader();
-  loader.load('models/Skull.obj', function (object) {
+  loader.load('models/jeep.obj', function (object) {
+    //mesh.scale.set(1,1,1);
+    // object.size = *2;
     object.rotation.z = Math.PI;
     modelObject = object;
     scene.add(object);
     animateModel();
+    object.scale.x = 5; // SCALE
+    object.scale.y = 5; // SCALE
+    object.scale.z = 5; // SCALE
   });
 }
 
