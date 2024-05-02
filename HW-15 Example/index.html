@@ -36,17 +36,15 @@
         var scene = new BABYLON.Scene(engine);
 
         // This creates and positions a free camera (non-mesh)
-        var camera = new BABYLON.FreeCamera(
-          "camera1",
-          new BABYLON.Vector3(0, 5, -10),
-          scene
-        );
+        const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0), scene);
+camera.attachControl(canvas, true);
+
 
         // This targets the camera to scene origin
-        camera.setTarget(BABYLON.Vector3.Zero());
+    //    camera.setTarget(BABYLON.Vector3.Zero());
 
         // This attaches the camera to the canvas
-        camera.attachControl(canvas, true);
+      //  camera.attachControl(canvas, true);
 
         // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
         var light = new BABYLON.HemisphericLight(
@@ -67,14 +65,37 @@
 
         // Move the sphere upward 1/2 its height
         sphere.position.y = 1;
+        sphere.position.x = 1.5;
+        sphere.position.z = 1;
 
+        var box = BABYLON.MeshBuilder.CreateBox("box", {size:2},scene);
+       
+        box.position.y = 1;
+        box.position.x=-1.5;
+        box.position.z=1;
+
+        var cylinder = BABYLON.MeshBuilder.CreateCylinder("cylinder", {height:2}, scene); 
+        cylinder.position.z = -2;
+        cylinder.position.y = 1;
+        
+        var cone = BABYLON.MeshBuilder.CreateCylinder("cone", {diameterBottom:1, diameterTop:0}, scene); //scene is optional and defaults to the current scene
+
+        cone.position.y=1;
+        cone.position.z=-2;
+        cone.position.x=2;
+
+        const torus = BABYLON.MeshBuilder.CreateTorus("torus", {}, scene);
+        torus.position.x=-2;
+        torus.position.y=.25;
+        torus.position.z=-2;
         // Our built-in 'ground' shape.
         var ground = BABYLON.MeshBuilder.CreateGround(
           "ground",
           { width: 6, height: 6 },
           scene
         );
-
+        
+        
         return scene;
       };
       const canvas = document.getElementById("renderCanvas"); // Get the canvas element
