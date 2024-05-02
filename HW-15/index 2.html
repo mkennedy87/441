@@ -48,7 +48,13 @@
           scene
         );
        light.intensity = 0.7;
-       BABYLON.SceneLoader.ImportMeshAsync("", "/models/", "burger.glb");
+       BABYLON.SceneLoader.ImportMeshAsync("", "/models/", "burger.glb")
+//        .then((result) => {
+//     result.meshes[1].position.x = 20;
+//     const myMesh1 = scene.getMeshByName("myMesh_1");
+//     myMesh1.rotation.y = Math.PI / 2;
+// })
+      ;
 
         var ground = BABYLON.MeshBuilder.CreateGround(
           "ground",
