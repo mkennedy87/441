@@ -47,7 +47,7 @@ var config = {
     function preload ()
     {
         this.load.image('sky', 'assets/castle.PNG');
-        this.load.image('ground', 'assets/platform.png');
+        this.load.image('ground', 'assets/plat.PNG');
         this.load.image('wall', 'assets/wall.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
@@ -113,8 +113,8 @@ var config = {
         // spike = this.physics.add.staticGroup();
         // spike.create(600, 525, 'spike');
 
-        player = this.physics.add.sprite(100, 450, 'dude');
-
+        player = this.physics.add.sprite(100, 400, 'dude');
+        
       //  player.setBounce(0.2);
       //  player.setCollideWorldBounds(true);
 
@@ -140,10 +140,25 @@ var config = {
 
         cursors = this.input.keyboard.createCursorKeys();
         stars = this.physics.add.group({
+           // scale: 10,
             key: 'star',
+            
             repeat: 0,
-            setXY: { x: 1200, y: 0, stepX: 70 }
+            //size: 10,
+            // setScale: 10,
+            //scale: 10,
+            //setScale: {10},
+            //star.setScale: 10,
+            //sprite.setScale: 10,
+            
+            setXY: { x: 1200, y: 0 }
+            //scale.X:{5}
+            //,scale: 10
+           
         });
+       //stars = sprite.setScale(10);
+       // star.setScale(10);
+      // stars.setScale(10);
 
         // stars.children.iterate(function (child) {
 
