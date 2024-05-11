@@ -40,12 +40,13 @@ var config = {
    // var scoreText;
     var gameOver = false;
     var spike;
+    var youWin = false;
 
     var game = new Phaser.Game(config);
 
     function preload ()
     {
-        this.load.image('sky', 'assets/sky.png');
+        this.load.image('sky', 'assets/castle.PNG');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('wall', 'assets/wall.png');
         this.load.image('star', 'assets/star.png');
@@ -57,7 +58,7 @@ var config = {
 
     function create ()
     {
-        this.add.image(400, 300, 'sky');
+        this.add.image(700, 300, 'sky');
        
         spike = this.physics.add.staticGroup();
         spike.create(410, 600, 'spike');
@@ -107,12 +108,14 @@ var config = {
         platforms.create(225, 245, 'ground').setScale(.25).refreshBody();
         platforms.create(450, 150, 'ground').setScale(.25).refreshBody();
 
+        //stars.create(1200,400, 'star').setScale(3).refreshBody();
+
         // spike = this.physics.add.staticGroup();
         // spike.create(600, 525, 'spike');
 
         player = this.physics.add.sprite(100, 450, 'dude');
 
-        player.setBounce(0.2);
+      //  player.setBounce(0.2);
       //  player.setCollideWorldBounds(true);
 
         this.anims.create({
@@ -138,27 +141,27 @@ var config = {
         cursors = this.input.keyboard.createCursorKeys();
         stars = this.physics.add.group({
             key: 'star',
-            repeat: 11,
-            setXY: { x: 12, y: 0, stepX: 70 }
+            repeat: 0,
+            setXY: { x: 1200, y: 0, stepX: 70 }
         });
 
-        stars.children.iterate(function (child) {
+        // stars.children.iterate(function (child) {
 
-            child.setBounceY(Phaser.Math.FloatBetween(0.1, 1));
+        //     child.setBounceY(Phaser.Math.FloatBetween(0.1, 1));
 
-        });
+        // });
 
-        bombs = this.physics.add.group();
+       // bombs = this.physics.add.group();
        // spike = this.physics.add.group();
 
-        scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+       // scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
         this.physics.add.collider(player, platforms);
-        this.physics.add.collider(stars, platforms);
-        this.physics.add.collider(bombs, platforms);
+       this.physics.add.collider(stars, platforms);
+       // this.physics.add.collider(bombs, platforms);
       // this.physics.add.collider(player, spike);
 
-       // this.physics.add.overlap(player, stars, collectStar, null, this);
+       this.physics.add.overlap(player, stars, collectStar, null, this);
       //  this.physics.add.collider(player, bombs, hitBomb, null, this);
         this.physics.add.collider(player, spike, hitSpike, null, this);
 
@@ -166,6 +169,10 @@ var config = {
 
     function update ()
     {
+        if(youWin)
+        {
+            return;
+        }
         if (gameOver)
     {
         return;
@@ -194,11 +201,14 @@ var config = {
             player.setVelocityY(-330);
         }
     }
-    // function collectStar (player, star)
-    // {
-    //     star.disableBody(true, true);
-    //    // score += 10;
-    //    // scoreText.setText('Score: ' + score);
+    function collectStar (player, star)
+    {
+        this.physics.pause();
+        star.disableBody(true, true);
+        youWinText = this.add.text(525, 275, 'YOU WIN!', { fontSize: '84px', fill: 'green' });
+        youWin = true;
+       // score += 10;
+       // scoreText.setText('Score: ' + score);
     //     if (stars.countActive(true) === 0)
     // {
     //     //  A new batch of stars to collect
@@ -217,7 +227,7 @@ var config = {
     //     bomb.allowGravity = false;
 
     // }
-    // }
+    }
 
 //     function hitBomb (player, bomb)
 // {
@@ -237,7 +247,7 @@ function hitSpike (player, spike)
     player.setTint(0xff0000);
 
     player.anims.play('turn');
-
+    gameOverText = this.add.text(525, 275, 'GAME OVER', { fontSize: '84px', fill: 'red' });
     gameOver = true;
 }
 </script>
