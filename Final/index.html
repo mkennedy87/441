@@ -16,7 +16,7 @@
 
 var config = {
         type: Phaser.AUTO,
-        width: 800,
+        width: 1600,
         height: 600,
         physics: {
             default: 'arcade',
@@ -36,8 +36,8 @@ var config = {
     var bombs;
     var platforms;
     var cursors;
-    var score = 0;
-    var scoreText;
+   // var score = 0;
+   // var scoreText;
     var gameOver = false;
     var spike;
 
@@ -59,19 +59,51 @@ var config = {
         this.add.image(400, 300, 'sky');
        
         spike = this.physics.add.staticGroup();
-        spike.create(600, 540, 'spike');
-        spike.create(615, 540, 'spike');
-        spike.create(630, 540, 'spike');
+        spike.create(410, 600, 'spike');
+        spike.create(430, 600, 'spike');
+        spike.create(450, 600, 'spike');
+        spike.create(470, 600, 'spike');
+        spike.create(490, 600, 'spike');
+        spike.create(510, 600, 'spike');
+        spike.create(530, 600, 'spike');
+        spike.create(550, 600, 'spike');
+        spike.create(570, 600, 'spike');
+        spike.create(590, 600, 'spike');
+        spike.create(610, 600, 'spike');
+        spike.create(630, 600, 'spike');
+        spike.create(650, 600, 'spike');
+        spike.create(670, 600, 'spike');
+        spike.create(690, 600, 'spike');
+        spike.create(710, 600, 'spike');
+        spike.create(730, 600, 'spike');
+        spike.create(750, 600, 'spike');
+        spike.create(770, 600, 'spike');
+        spike.create(790, 600, 'spike');
+        spike.create(830, 600, 'spike');
+        spike.create(850, 600, 'spike');
+        spike.create(870, 600, 'spike');
+        spike.create(890, 600, 'spike');
+        spike.create(810, 600, 'spike');
+        spike.create(910, 600, 'spike');
+        spike.create(930, 600, 'spike');
+        spike.create(950, 600, 'spike');
+        spike.create(970, 600, 'spike');
+        spike.create(990, 600, 'spike');
+        spike.create(1010, 600, 'spike');
 
         platforms = this.physics.add.staticGroup();
        
 
-        platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(0, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(1400, 568, 'ground').setScale(2).refreshBody();
+        platforms.create(800, 632, 'ground').setScale(2).refreshBody();
+//wall
+        platforms.create(0, 568, 'wall').setScale(2).rotate(90).refreshBody();
 
-        platforms.create(600, 400, 'ground');
-        platforms.create(50, 250, 'ground');
-        platforms.create(750, 220, 'ground');
-        platforms.create(350, 100, 'ground');
+        platforms.create(400, 435, 'ground').setScale(.25).refreshBody();
+        platforms.create(450, 325, 'ground').setScale(.25).refreshBody();
+        platforms.create(225, 245, 'ground').setScale(.25).refreshBody();
+        platforms.create(450, 150, 'ground').setScale(.25).refreshBody();
 
         // spike = this.physics.add.staticGroup();
         // spike.create(600, 525, 'spike');
@@ -79,7 +111,7 @@ var config = {
         player = this.physics.add.sprite(100, 450, 'dude');
 
         player.setBounce(0.2);
-        player.setCollideWorldBounds(true);
+      //  player.setCollideWorldBounds(true);
 
         this.anims.create({
             key: 'left',
@@ -124,8 +156,8 @@ var config = {
         this.physics.add.collider(bombs, platforms);
       // this.physics.add.collider(player, spike);
 
-        this.physics.add.overlap(player, stars, collectStar, null, this);
-        this.physics.add.collider(player, bombs, hitBomb, null, this);
+       // this.physics.add.overlap(player, stars, collectStar, null, this);
+      //  this.physics.add.collider(player, bombs, hitBomb, null, this);
         this.physics.add.collider(player, spike, hitSpike, null, this);
 
     }
@@ -160,41 +192,41 @@ var config = {
             player.setVelocityY(-330);
         }
     }
-    function collectStar (player, star)
-    {
-        star.disableBody(true, true);
-        score += 10;
-        scoreText.setText('Score: ' + score);
-        if (stars.countActive(true) === 0)
-    {
-        //  A new batch of stars to collect
-        stars.children.iterate(function (child) {
+    // function collectStar (player, star)
+    // {
+    //     star.disableBody(true, true);
+    //    // score += 10;
+    //    // scoreText.setText('Score: ' + score);
+    //     if (stars.countActive(true) === 0)
+    // {
+    //     //  A new batch of stars to collect
+    //     stars.children.iterate(function (child) {
 
-            child.enableBody(true, child.x, 0, true, true);
+    //         child.enableBody(true, child.x, 0, true, true);
 
-        });
+    //     });
 
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+    //     var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-        var bomb = bombs.create(x, 16, 'bomb');
-        bomb.setBounce(1);
-        bomb.setCollideWorldBounds(true);
-        bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = false;
+    //     var bomb = bombs.create(x, 16, 'bomb');
+    //     bomb.setBounce(1);
+    //     bomb.setCollideWorldBounds(true);
+    //     bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
+    //     bomb.allowGravity = false;
 
-    }
-    }
+    // }
+    // }
 
-    function hitBomb (player, bomb)
-{
-    this.physics.pause();
+//     function hitBomb (player, bomb)
+// {
+//     this.physics.pause();
 
-    player.setTint(0xff0000);
+//     player.setTint(0xff0000);
 
-    player.anims.play('turn');
+//     player.anims.play('turn');
 
-    gameOver = true;
-}
+//     gameOver = true;
+// }
 // spike collision
 function hitSpike (player, spike)
 {
