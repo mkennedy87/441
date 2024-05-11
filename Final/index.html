@@ -47,6 +47,7 @@ var config = {
     {
         this.load.image('sky', 'assets/sky.png');
         this.load.image('ground', 'assets/platform.png');
+        this.load.image('wall', 'assets/wall.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
         this.load.image('spike', 'assets/triangle.png');
@@ -98,7 +99,8 @@ var config = {
         platforms.create(1400, 568, 'ground').setScale(2).refreshBody();
         platforms.create(800, 632, 'ground').setScale(2).refreshBody();
 //wall
-        platforms.create(0, 568, 'wall').setScale(2).rotate(90).refreshBody();
+        platforms.create(-25, 568, 'wall').setScale(3).refreshBody();
+        platforms.create(1425, 568, 'wall').setScale(3).refreshBody();
 
         platforms.create(400, 435, 'ground').setScale(.25).refreshBody();
         platforms.create(450, 325, 'ground').setScale(.25).refreshBody();
